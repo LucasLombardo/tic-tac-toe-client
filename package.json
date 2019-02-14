@@ -1,6 +1,9 @@
 {
   "name": "tic-tact-toe-client",
-  "version": "0.0.3",
+  "version": "0.0.1",
+  "description": "Tic Tac Toe game for General Assembly project",
+  "author": "Lucas Lombardo <lucasalombardo@gmail.com>",
+  "homepage": "https://github.com/LucasLombardo/tic-tac-toe-client#readme",
   "private": true,
   "license": "MIT",
   "dependencies": {
@@ -42,5 +45,11 @@
     "url-loader": "^1.0.1",
     "webpack": "^3.5.1",
     "webpack-dev-server": "^2.7.1"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "develop": "grunt serve & code .",
+    "start": "grunt serve",
+    "serve": "grunt serve"
   }
 }
