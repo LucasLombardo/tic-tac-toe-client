@@ -6,6 +6,9 @@
   },
   "rules": {
     "prefer-const": "error",
-    "no-var": "error"
+    "no-var": "error",
+    "indent": ["error", 4],
+    "quotes": ["error", "backtick"],
+    "comma-dangle": ["error", "always"]
   }
 }
