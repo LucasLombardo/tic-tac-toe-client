@@ -39,3 +39,17 @@ $black: #121212;
 .gameboard--marker {
   font-size: 2em;
 }
+
+.auth {
+  width: fit-content;
+
+  & > form {
+    border: 1px solid $black;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+}
+
+.auth--form-title {
+  margin: 0 0 1em;
+}
