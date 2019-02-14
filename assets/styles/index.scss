@@ -10,10 +10,7 @@ $black: #121212;
 
 .gameboard--space {
   // sass-lint:disable-block force-pseudo-nesting
-  align-items: center;
   border: 2px solid $black;
-  display: flex;
-  justify-content: center;
 
   &:nth-of-type(n+1):nth-of-type(-n+3) {
     // top row
@@ -37,7 +34,13 @@ $black: #121212;
 }
 
 .gameboard--marker {
+  display: block;
   font-size: 2em;
+  height: 100%;
+  line-height: 100px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .auth {
