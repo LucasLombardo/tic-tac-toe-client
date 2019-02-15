@@ -9,6 +9,8 @@ const selectSpace = space => {
     // if valid space selected, print to ui
     if (board.selectCell(space)) {
         ui.updateCell(space, currTurn)
+        // update ui with current turn
+        ui.updateTurn(board.turn)
         // if game won, print to the ui
         if (board.winner) ui.displayWinner(board.winner)
     } else {

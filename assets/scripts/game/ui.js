@@ -13,8 +13,12 @@ const displayWinner = winner => {
     if (winner.length === 1) {
         $(`#game-message`).text(`Winner is ${winner.toUpperCase()}. Reset board to play again!`)
     } else {
-        $(`game-message`).text(`Tie game. Reset board to play again!`)
+        $(`#game-message`).text(`Tie game. Reset board to play again!`)
     }
 }
 
-module.exports = { updateCell, invalidCell, displayWinner, }
+const updateTurn = turn => {
+    $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn`)
+}
+
+module.exports = { updateCell, invalidCell, displayWinner, updateTurn, }
