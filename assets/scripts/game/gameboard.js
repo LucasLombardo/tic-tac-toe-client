@@ -13,7 +13,7 @@ Gameboard.prototype = {
 
     selectCell: function (cellIndex) {
         // if cell unavailable, returns false
-        if (this.cells[cellIndex]) {
+        if (this.cells[cellIndex] || this.winner) {
             return false
         } else {
             // if cell avaialable, selects it and returns true
