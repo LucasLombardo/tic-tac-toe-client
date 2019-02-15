@@ -42,6 +42,13 @@ Gameboard.prototype = {
                 return true
             }
         }
+        // if tie, set winner to tie and return true
+        const emptyCells = this.cells.filter(cell => !cell)
+        if (!emptyCells.length) {
+            // if length 0, all cells are filled and it is a tie
+            this.winner = `tie`
+            return true
+        }
         // if no win found return false
         return false
     },
