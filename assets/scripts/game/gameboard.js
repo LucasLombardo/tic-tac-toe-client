@@ -1,6 +1,7 @@
 const Gameboard = function (turn, cells, user) {
     this.cells = cells || [ ``, ``, ``, ``, ``, ``, ``, ``, ``, ] // array of 9 strings
     this.turn = turn || `x` // enum: `x` or `o`
+    this.starts = `x`
     this.winner = null // enum: null, `x`, `o`, or `tie`
     this.user = user || `x` // enum: `x` or `o`
 }
@@ -56,16 +57,9 @@ Gameboard.prototype = {
     reset: function (turn) {
         // resets gameboard
         this.cells = [ ``, ``, ``, ``, ``, ``, ``, ``, ``, ]
-        this.turn = turn || `x`
+        this.starts = this.starts === `x` ? `o` : `x`
+        this.turn = turn || this.starts
         this.winner = null
-    },
-
-    setBoard: function (cells, turn, user) {
-        this.cells = cells || [ ``, ``, ``, ``, ``, ``, ``, ``, ``, ] // array of 9 strings
-        this.turn = turn || this.turn
-        this.winner = null
-        this.user = user || this.user
-        this.checkForWinner()
     },
 }
 
