@@ -1,7 +1,5 @@
-const updateCell = (space, currTurn) => {
-    console.log(`updateCell space:${space} turn:${currTurn}`)
-    console.log($(`.gameboard--space:nth-of-type(${space})`))
-    $(`.gameboard--space:nth-of-type(${Number(space) + 1})`).text(currTurn)
+const updateCell = (target, currTurn) => {
+    $(target).text(currTurn)
     $(`#game-message`).text(``)
 }
 
@@ -21,4 +19,19 @@ const updateTurn = turn => {
     $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn`)
 }
 
-module.exports = { updateCell, invalidCell, displayWinner, updateTurn, }
+const resetGameMessage = () => {
+    $(`#game-message`).text(``)
+}
+
+const clearBoard = () => {
+    $(`.gameboard--marker`).text(``)
+}
+
+module.exports = {
+    updateCell,
+    invalidCell,
+    displayWinner,
+    updateTurn,
+    resetGameMessage,
+    clearBoard,
+}

@@ -3,12 +3,12 @@ const ui = require(`./ui`)
 
 const board = new Gameboard()
 
-const selectSpace = space => {
-    console.log(`selectSpace ${space}`)
+const selectSpace = target => {
     const currTurn = board.turn
     // if valid space selected, print to ui
+    const space = target.dataset.marker
     if (board.selectCell(space)) {
-        ui.updateCell(space, currTurn)
+        ui.updateCell(target, currTurn)
         // update ui with current turn
         ui.updateTurn(board.turn)
         // if game won, print to the ui
@@ -19,4 +19,13 @@ const selectSpace = space => {
     board.printCells()
 }
 
-module.exports = { selectSpace, }
+const reset = () => {
+    console.log(`reset game`)
+    // reset board
+    board.reset()
+    // reset ui game message
+    ui.resetGameMessage()
+    ui.clearBoard()
+}
+
+module.exports = { selectSpace, reset, }
