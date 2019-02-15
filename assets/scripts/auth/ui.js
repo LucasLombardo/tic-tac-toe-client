@@ -15,6 +15,10 @@ const signInSuccess = responseData => {
     $(`#auth-message`).text(`Successfully signed in`)
     $(`form`).trigger(`reset`)
     store.user = responseData.user
+    $(`#sign-in-form`).hide()
+    $(`#sign-up-form`).hide()
+    $(`#change-password-form`).show()
+    $(`#sign-out-form`).show()
 }
 
 const signInFailure = e => {
@@ -33,13 +37,25 @@ const changePasswordFailure = e => {
 }
 
 const signOutSuccess = e => {
+    // display message and reset forms
     $(`#auth-message`).text(`Successfully signed out.`)
     $(`form`).trigger(`reset`)
+    // clear user token
     store.user.token = ``
+    // hide unrelevant forms / show relevant ones
+    $(`#change-password-form`).hide()
+    $(`#sign-out-form`).hide()
+    $(`#sign-in-form`).show()
+    $(`#sign-up-form`).show()
 }
 
 const signOutFailure = e => {
     $(`#auth-message`).text(`Failed to sign out`)
+}
+
+const init = () => {
+    $(`#change-password-form`).hide()
+    $(`#sign-out-form`).hide()
 }
 
 module.exports = {
@@ -51,4 +67,5 @@ module.exports = {
     changePasswordFailure,
     signOutFailure,
     signOutSuccess,
+    init,
 }

@@ -39,9 +39,14 @@ const onSignOut = event => {
         .catch(ui.signOutFailure)
 }
 
+const onLoad = () => {
+    ui.init()
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
     onChangePassword,
     onSignOut,
+    onLoad,
 }
