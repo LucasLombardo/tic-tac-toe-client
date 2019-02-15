@@ -26,6 +26,7 @@ const reset = () => {
     // reset ui game message
     ui.resetGameMessage()
     ui.clearBoard()
+    ui.updateTurn(board.turn)
 }
 
 module.exports = { selectSpace, reset, }
