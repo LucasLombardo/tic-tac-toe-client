@@ -27,6 +27,14 @@ const clearBoard = () => {
     $(`.gameboard--marker`).text(``)
 }
 
+const displayGames = (gamesPlayed) => {
+    if (gamesPlayed !== undefined) {
+        $(`#games-played-message`).text(`you've played ${gamesPlayed} games`)
+    } else {
+        $(`#games-played-message`).text(``)
+    }
+}
+
 module.exports = {
     updateCell,
     invalidCell,
@@ -34,4 +42,5 @@ module.exports = {
     updateTurn,
     resetGameMessage,
     clearBoard,
+    displayGames,
 }

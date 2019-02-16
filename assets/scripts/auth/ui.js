@@ -15,6 +15,7 @@ const signInSuccess = responseData => {
     $(`#auth-message`).text(`Successfully signed in`)
     $(`form`).trigger(`reset`)
     store.user = responseData.user
+    console.log(store.user.token)
     $(`#sign-in-form`).hide()
     $(`#sign-up-form`).hide()
     $(`#change-password-form`).show()

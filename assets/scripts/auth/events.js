@@ -1,6 +1,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const ui = require(`./ui`)
 const api = require(`./api`)
+const game = require(`../game/game`)
 
 const onSignUp = event => {
     event.preventDefault()
@@ -18,7 +19,10 @@ const onSignIn = event => {
     const formData = getFormFields(form)
 
     api.signIn(formData)
-        .then(ui.signInSuccess)
+        .then((res) => {
+            ui.signInSuccess(res)
+            game.reset()
+        })
         .catch(ui.signInFailure)
 }
 
