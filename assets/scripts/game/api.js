@@ -19,7 +19,7 @@ const updateGame = patchObj => {
     if (token) {
         console.log(gameId)
         return $.ajax({
-            url: `${apiUrl}games${gameId}`,
+            url: `${apiUrl}games/${gameId}`,
             method: `PATCH`,
             headers: {
                 Authorization: `Token token=${token}`,
