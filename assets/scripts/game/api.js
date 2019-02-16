@@ -5,7 +5,7 @@ const createGame = () => {
     const { token, } = store.user
     if (token) {
         return $.ajax({
-            url: `${apiUrl}/games`,
+            url: `${apiUrl}games`,
             method: `POST`,
             headers: {
                 Authorization: `Token token=${token}`,
@@ -19,7 +19,7 @@ const updateGame = patchObj => {
     if (token) {
         console.log(gameId)
         return $.ajax({
-            url: `${apiUrl}games/${gameId}`,
+            url: `${apiUrl}games${gameId}`,
             method: `PATCH`,
             headers: {
                 Authorization: `Token token=${token}`,

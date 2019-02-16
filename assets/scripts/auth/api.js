@@ -3,7 +3,7 @@ const store = require(`../store`)
 
 const signUp = formData => (
     $.ajax({
-        url: `${config.apiUrl}/sign-up`,
+        url: `${config.apiUrl}sign-up`,
         method: `POST`,
         data: formData,
     })
@@ -11,7 +11,7 @@ const signUp = formData => (
 
 const signIn = formData => (
     $.ajax({
-        url: `${config.apiUrl}/sign-in`,
+        url: `${config.apiUrl}sign-in`,
         method: `POST`,
         data: formData,
     })
@@ -19,7 +19,7 @@ const signIn = formData => (
 
 const changePassword = formData => (
     $.ajax({
-        url: `${config.apiUrl}/change-password`,
+        url: `${config.apiUrl}change-password`,
         method: `PATCH`,
         headers: {
             Authorization: `Token token=${store.user.token}`,
@@ -30,7 +30,7 @@ const changePassword = formData => (
 
 const signOut = () => (
     $.ajax({
-        url: `${config.apiUrl}/sign-out`,
+        url: `${config.apiUrl}sign-out`,
         method: `DELETE`,
         headers: {
             Authorization: `Token token=${store.user.token}`,
