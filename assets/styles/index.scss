@@ -80,6 +80,7 @@ form {
 }
 
 .auth {
+  margin: 0 auto;
   width: fit-content;
 
   & > form {
@@ -95,4 +96,12 @@ form {
 
 .auth--form-title {
   margin: 0 0 1em;
+}
+
+input {
+  width: 80px;
+
+  &[type='submit'] {
+    width: inherit;
+  }
 }
