@@ -34,8 +34,10 @@ const clearBoard = () => {
 }
 
 const displayGameHistory = payload => {
-    // get array of finished game boards
-    const gameBoards = payload.games.map(game => game.cells)
+    // sort array of finished games by id
+    const sortedGames = payload.games.sort((a, b) => Number(a.id) - Number(b.id))
+    // create ordered array of gameBoards
+    const gameBoards = sortedGames.map(game => game.cells)
     // construct contents for HTML display table, with game headers
     let tableContents = `
         <tr>
