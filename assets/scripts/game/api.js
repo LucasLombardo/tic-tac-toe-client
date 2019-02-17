@@ -29,7 +29,7 @@ const updateGame = patchObj => {
     }
 }
 
-const getFinishedGames = () => {
+const getGameHistory = () => {
     const { token, } = store.user
     if (token) {
         return $.ajax({
@@ -45,5 +45,5 @@ const getFinishedGames = () => {
 module.exports = {
     createGame,
     updateGame,
-    getFinishedGames,
+    getGameHistory,
 }

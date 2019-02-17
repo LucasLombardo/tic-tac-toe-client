@@ -1,3 +1,5 @@
+const Gameboard = require(`./gameboard`)
+
 const updateCell = (target, currTurn) => {
     $(target).text(currTurn)
     $(`#game-message`).text(``)
@@ -27,12 +29,45 @@ const clearBoard = () => {
     $(`.gameboard--marker`).text(``)
 }
 
-const displayGames = (gamesPlayed) => {
-    if (gamesPlayed !== undefined) {
-        $(`#games-played-message`).text(`you've played ${gamesPlayed} games`)
-    } else {
-        $(`#games-played-message`).text(``)
-    }
+const displayGameHistory = payload => {
+    // get array of finished game boards
+    const gameBoards = payload.games.map(game => game.cells)
+    // construct contents for HTML display table, with game headers
+    let tableContents = `
+        <tr>
+            <th>Game #</th>
+            <th>Winner</th> 
+            <th>Turns Taken</th>
+        </tr>
+    `
+    // loop over every gameBoard and create a row to push to tableContents
+    gameBoards.map((gameBoard, i) => {
+        // create new gameboard object and run checkForWinner method
+        const board = new Gameboard(`x`, gameBoard)
+        board.checkForWinner()
+        // set variables to insert into row
+        const gameNumber = i + 1
+        console.log(gameNumber)
+        console.log(gameBoard)
+        const winner = board.winner
+        const turnsTaken = board.cells.filter(cell => cell).length
+        // add row for current game to tableContents
+        tableContents += `
+            <tr>
+                <td>${gameNumber}</td>
+                <td>${winner}</td> 
+                <td>${turnsTaken}</td>
+            </tr>
+        `
+    })
+    // set table's html to newly constructed tableContents
+    $(`#game-history`).html(tableContents)
+    $(`#get-game-history`).text(`Refresh Game History`)
+}
+
+const clearGameHistory = () => {
+    $(`#get-game-history`).text(`View Game History`)
+    $(`#game-history`).html(``)
 }
 
 module.exports = {
@@ -42,5 +77,6 @@ module.exports = {
     updateTurn,
     resetGameMessage,
     clearBoard,
-    displayGames,
+    displayGameHistory,
+    clearGameHistory,
 }

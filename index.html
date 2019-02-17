@@ -16,7 +16,6 @@
       <h1>Tic Tac Toe</h1>
       <h2 id="game-message"></h2>
       <p id="player-turn-message">X's Turn</p>
-      <p id="games-played-message"></p>
       <main class="gameboard">
         <div class="gameboard--space" >
           <button type="button" class="gameboard--marker" data-marker="0"></button>
@@ -75,6 +74,13 @@
           <input id="sign-out-button" class="auth--sign-out-button" type="submit" value="Sign Out" />
         </form>
       </section>
-
+      
+      <section>
+        <h2>Game History</h2>
+        <p class="subtext">While logged in, your game history is tracked so you can view past games.</p>
+        <button type="button" id="get-game-history">View Game History</button>
+        <table id="game-history" class="game-history">
+          </table>
+      </section>
     </body>
 </html>

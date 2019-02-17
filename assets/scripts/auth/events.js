@@ -2,6 +2,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const ui = require(`./ui`)
 const api = require(`./api`)
 const game = require(`../game/game`)
+const gameUi = require(`../game/ui`)
 
 const onSignUp = event => {
     event.preventDefault()
@@ -41,6 +42,8 @@ const onSignOut = event => {
     api.signOut()
         .then(ui.signOutSuccess)
         .catch(ui.signOutFailure)
+
+    gameUi.clearGameHistory()
 }
 
 const onLoad = () => {

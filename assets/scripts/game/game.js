@@ -6,18 +6,6 @@ const store = require(`../store`)
 // initialize gameboard object
 const board = new Gameboard()
 
-const updateFinishedGames = () => {
-    console.log(`updateFinishedGames`)
-    if (store.user.token) {
-        // if user logged in, get played games
-        api.getFinishedGames().then((payload) => {
-            ui.displayGames(payload.games.length)
-        })
-    } else {
-        ui.displayGames()
-    }
-}
-
 const selectSpace = target => {
     const currTurn = board.turn
     // if valid space selected, print to ui
@@ -28,7 +16,6 @@ const selectSpace = target => {
         ui.updateTurn(board.turn)
         // if game won, print to the ui
         if (board.winner) {
-            updateFinishedGames()
             ui.displayWinner(board.winner)
         }
         // assemble object to update api
@@ -48,7 +35,6 @@ const selectSpace = target => {
     } else {
         ui.invalidCell()
     }
-    updateFinishedGames()
     board.printCells()
 }
 
@@ -68,7 +54,6 @@ const reset = () => {
     ui.resetGameMessage()
     ui.clearBoard()
     ui.updateTurn(board.turn)
-    updateFinishedGames()
 }
 
-module.exports = { selectSpace, reset, updateFinishedGames, }
+module.exports = { selectSpace, reset, }
