@@ -64,6 +64,10 @@ const displayGameHistory = payload => {
             </tr>
         `
     })
+    // if there were no gameBoards, notify user
+    if (!gameBoards.length) {
+        tableContents = `<p>You haven't finished any games yet,<br/> play a game or refresh to view games.</p>`
+    }
     // set table's html to newly constructed tableContents
     $(`#game-history`).html(tableContents)
     $(`#get-game-history`).text(`Refresh Game History`)
