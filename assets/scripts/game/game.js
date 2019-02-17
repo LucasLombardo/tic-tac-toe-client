@@ -30,25 +30,32 @@ const selectSpace = target => {
             },
         }
         // pass assembled object to api
-        const patchedGame = api.updateGame(patchObj)
+        api.updateGame(patchObj)
     } else {
         ui.invalidCell()
     }
 }
 
 const reset = () => {
-    // reset board
-    board.reset()
-    // create game in api
-    const game = api.createGame()
-    // if user was logged in, write gameId to store
-    game && game.then(() => {
-        store.gameId = game.responseJSON.game.id
-    })
-    // reset ui game message
-    ui.resetGameMessage()
-    ui.clearBoard()
-    ui.updateTurn(board.turn)
+    if (!store.requestlimits.reset) {
+        // limit requests to one per second
+        store.requestlimits.reset = true
+        setTimeout(() => {
+            store.requestlimits.reset = false
+        }, 1000)
+        // reset board
+        board.reset()
+        // create game in api
+        const game = api.createGame()
+        // if user was logged in, write gameId to store
+        game && game.then(() => {
+            store.gameId = game.responseJSON.game.id
+        })
+        // reset ui game message
+        ui.resetGameMessage()
+        ui.clearBoard()
+        ui.updateTurn(board.turn)
+    }
 }
 
 module.exports = { selectSpace, reset, }

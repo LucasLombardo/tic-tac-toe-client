@@ -16,7 +16,14 @@ const onReset = () => {
 const onGetGameHistory = () => {
     // fetch game history
     if (store.user.token) {
-        api.getGameHistory().then(ui.displayGameHistory)
+        if (!store.requestlimits.getGameHistory) {
+            // limit requests to one per second
+            store.requestlimits.getGameHistory = true
+            setTimeout(() => {
+                store.requestlimits.getGameHistory = false
+            }, 1000)
+            api.getGameHistory().then(ui.displayGameHistory)
+        }
     } else {
         ui.askToSignIn()
     }
