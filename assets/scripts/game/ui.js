@@ -51,8 +51,6 @@ const displayGameHistory = payload => {
         board.checkForWinner()
         // set variables to insert into row
         const gameNumber = i + 1
-        console.log(gameNumber)
-        console.log(gameBoard)
         const winner = board.winner
         const turnsTaken = board.cells.filter(cell => cell).length
         // add row for current game to tableContents

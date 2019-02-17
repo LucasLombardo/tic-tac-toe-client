@@ -17,7 +17,6 @@ const createGame = () => {
 const updateGame = patchObj => {
     const { user: { token, }, gameId, } = store
     if (token) {
-        console.log(gameId)
         return $.ajax({
             url: `${apiUrl}games/${gameId}`,
             method: `PATCH`,

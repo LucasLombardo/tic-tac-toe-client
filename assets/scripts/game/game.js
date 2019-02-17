@@ -31,8 +31,6 @@ const selectSpace = target => {
         }
         // pass assembled object to api
         const patchedGame = api.updateGame(patchObj)
-        // if user was logged in, log the api payload
-        patchedGame && patchedGame.then(console.log(patchedGame))
     } else {
         ui.invalidCell()
     }
@@ -40,15 +38,12 @@ const selectSpace = target => {
 }
 
 const reset = () => {
-    console.log(`reset game`)
     // reset board
     board.reset()
     // create game in api
     const game = api.createGame()
-    console.log(game)
     // if user was logged in, write gameId to store
     game && game.then(() => {
-        console.log(`reset game, set id`)
         store.gameId = game.responseJSON.game.id
     })
     // reset ui game message
