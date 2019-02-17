@@ -17,6 +17,7 @@ const selectSpace = target => {
         // if game won, print to the ui
         if (board.winner) {
             ui.displayWinner(board.winner)
+            ui.updateTurn(board.winner, true)
         }
         // assemble object to update api
         const patchObj = {

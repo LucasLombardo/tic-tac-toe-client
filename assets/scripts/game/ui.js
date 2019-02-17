@@ -17,8 +17,12 @@ const displayWinner = winner => {
     }
 }
 
-const updateTurn = turn => {
-    $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn`)
+const updateTurn = (turn, won = false) => {
+    if (!won) {
+        $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn`)
+    } else {
+        $(`#player-turn-message`).text(`Game is over.`)
+    }
 }
 
 const resetGameMessage = () => {
