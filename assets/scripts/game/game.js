@@ -34,7 +34,6 @@ const selectSpace = target => {
     } else {
         ui.invalidCell()
     }
-    board.printCells()
 }
 
 const reset = () => {
