@@ -1,6 +1,7 @@
 const game = require(`./game`)
 const api = require(`./api`)
 const ui = require(`./ui`)
+const store = require(`../store`)
 
 const onSelectSpace = event => {
     // set space on board
@@ -14,7 +15,11 @@ const onReset = () => {
 
 const onGetGameHistory = () => {
     // fetch game history
-    api.getGameHistory().then(ui.displayGameHistory)
+    if (store.user.token) {
+        api.getGameHistory().then(ui.displayGameHistory)
+    } else {
+        ui.askToSignIn()
+    }
 }
 
 module.exports = { onSelectSpace, onReset, onGetGameHistory, }

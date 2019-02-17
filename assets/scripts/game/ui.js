@@ -70,6 +70,12 @@ const clearGameHistory = () => {
     $(`#game-history`).html(``)
 }
 
+const askToSignIn = () => {
+    // $(`#sign-up-input`).reportValidity(`is not`)
+    $(`#auth-message`).text(`You need to be logged in to do that!`)
+    $(`#sign-up-input`).select()
+}
+
 module.exports = {
     updateCell,
     invalidCell,
@@ -79,4 +85,5 @@ module.exports = {
     clearBoard,
     displayGameHistory,
     clearGameHistory,
+    askToSignIn,
 }
