@@ -26,6 +26,12 @@ form {
   background-color: $black;
 }
 
+nav {
+  .sidenav-trigger {
+    margin: 0;
+  }
+}
+
 .sidenav {
   .subheader {
     font-size: 1.4em;
@@ -82,4 +88,20 @@ form {
 .auth {
   margin: 0 auto;
   max-width: 800px;
+}
+
+.btn {
+  margin: .5em 0;
+}
+
+.nm-back {
+  margin: 0 auto;
+}
+
+.nm-back-wrapper {
+  bottom: 0;
+  left: 0;
+  padding-bottom: 2em;
+  position: absolute;
+  width: 100%;
 }

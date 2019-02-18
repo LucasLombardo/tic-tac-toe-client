@@ -33,4 +33,11 @@ $(() => {
             })
         }
     })
+
+    // back from auth
+    $(`#back-from-auth`).on(`click`, () => {
+        $(`#auth-page`).fadeOut(`fast`, () => {
+            $(`#game-page`).fadeIn(`slow`)
+        })
+    })
 })

@@ -120,34 +120,53 @@
         <button id="reset" type="button">Reset Board</button>
       </div>
         
+      <!-- Authentication -->
       <div id="auth-page" class="nm-page">
-        <section class="auth">
-          <h2>Authentication</h2>
-          <p id="auth-message" class="auth--message"></p>
-          <form id="sign-up-form" class="auth--sign-up-form">
-            <h3 class="auth--form-title">Sign Up</h3>
-            <input id="sign-up-input" name="credentials[email]" type="text" placeholder="username">
-            <input name="credentials[password]" type="password" placeholder="password">
-            <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
-            <input type="submit" />
-          </form>
-          <form id="sign-in-form" class="auth--sign-in-form">
-            <h3 class="auth--form-title">Sign In</h3>
-            <input name="credentials[email]" type="text" placeholder="username">
-            <input name="credentials[password]" type="password" placeholder="password">
-            <input type="submit" />
-          </form>
-          <form id="change-password-form" class="auth--change-password-form">
-            <h3 class="auth--form-title">Change Password</h3>
-            <input name="passwords[old]" type="password" placeholder="old password">
-            <input name="passwords[new]" type="password" placeholder="new password">
-            <input type="submit" />
-          </form>
-          <form id="sign-out-form" class="auth--sign-out-form">
-            <h3 class="auth--form-title">Sign-out</h3>
-            <input id="sign-out-button" class="auth--sign-out-button" type="submit" value="Sign Out" />
-          </form>
-        </section>
+        <div class="container">
+          <section class="auth">
+            <p id="auth-message" class="auth--message"></p>
+
+            <form id="sign-in-form" class="auth--sign-in-form">
+              <h4 class="auth--form-title">Sign In</h4>
+              <input name="credentials[email]" type="text" placeholder="username">
+              <input name="credentials[password]" type="password" placeholder="password">
+              <button class="btn waves-effect waves-light light-blue lighten-2" type="submit" name="action">Sign In
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+
+            <form id="sign-up-form" class="auth--sign-up-form">
+              <h4 class="auth--form-title">Sign Up</h4>
+              <input id="sign-up-input" name="credentials[email]" type="text" placeholder="username">
+              <input name="credentials[password]" type="password" placeholder="password">
+              <button class="btn waves-effect waves-light light-blue lighten-2" type="submit" name="action">Sign Up
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+
+            <form id="change-password-form" class="auth--change-password-form">
+              <h4 class="auth--form-title">Change Password</h4>
+              <input name="passwords[old]" type="password" placeholder="old password">
+              <input name="passwords[new]" type="password" placeholder="new password">
+              <button class="btn waves-effect waves-light light-blue lighten-2" type="submit" name="action">Change Password
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+
+            <form id="sign-out-form" class="auth--sign-out-form">
+              <h4 class="auth--form-title">Sign-out</h4>
+              <button id="sign-out-button" class="btn waves-effect waves-light light-blue lighten-2" type="submit" name="action">Sign Out
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+
+            <div class="nm-back-wrapper">
+              <button id="back-from-auth" class="btn waves-effect waves-light light-blue lighten-2 nm-back" type="submit" name="action">
+                <i class="material-icons right">arrow_back</i>Back To Game
+              </button>
+            </div>
+          </section>
+        </div>
       </div>
         
       <div id="history-page" class="nm-page">
