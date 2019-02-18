@@ -9,6 +9,32 @@ form {
   text-align: left;
 }
 
+.nm-nav-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nm-logo {
+  font-size: 1.6em;
+}
+
+.nm-user-image {
+  opacity: .6;
+}
+
+.nm-user-image-bg {
+  background-color: $black;
+}
+
+.sidenav {
+  .subheader {
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    margin-top: 0.5em;
+  }
+}
+
 .gameboard {
   display: grid;
   grid-auto-rows: 100px;

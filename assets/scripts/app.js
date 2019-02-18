@@ -12,4 +12,6 @@ $(() => {
     $(`.gameboard--marker`).on(`click`, gameEvents.onSelectSpace)
     $(`#reset`).on(`click`, gameEvents.onReset)
     $(`#get-game-history`).on(`click`, gameEvents.onGetGameHistory)
+
+    $(`.sidenav`).sidenav()
 })
