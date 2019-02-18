@@ -14,4 +14,23 @@ $(() => {
     $(`#get-game-history`).on(`click`, gameEvents.onGetGameHistory)
 
     $(`.sidenav`).sidenav()
+
+    // hide pages
+    $(`#auth-page`).hide()
+    $(`#history-page`).hide()
+    // temporary page change logic
+    let page = `#game-page`
+    $(`.nm-logo`).on(`click`, () => {
+        if (page === `#game-page`) {
+            page = `#auth-page`
+            $(`#game-page`).fadeOut(`fast`, () => {
+                $(`#auth-page`).fadeIn(`slow`)
+            })
+        } else {
+            page = `#game-page`
+            $(`#auth-page`).fadeOut(`fast`, () => {
+                $(`#game-page`).fadeIn(`slow`)
+            })
+        }
+    })
 })
