@@ -9,6 +9,9 @@ const onSignUp = event => {
     const form = event.target
     const formData = getFormFields(form)
 
+    // override pw verification behavior of api
+    formData.credentials.password_confirmation = formData.credentials.password
+
     api.signUp(formData)
         .then(ui.signUpSuccess)
         .catch(ui.signUpFailure)
