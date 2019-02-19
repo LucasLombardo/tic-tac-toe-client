@@ -22,7 +22,7 @@
             <ul class="nm-nav-flex-container">
               <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a></li>
               <li><a href="#" class="nm-logo">Tic Tac Bro</a></li>
-              <li><a><i class="material-icons">info_outline</i></a></li>
+              <li><a id="open-history"><i class="material-icons">history</i></a></li>
             </ul>
           </div>
         </div>
@@ -39,6 +39,11 @@
             <span class="white-text name">John Doe</span>
             <span class="white-text email">jdandturk@gmail.com</span>
           </div>
+        </li>
+        <li><a id="open-auth">Sign In / Sign Up</a></li>
+        <li><a id="sign-out-link">Log Out</a></li>
+        <li>
+          <div class="divider"></div>
         </li>
         <li><a class="subheader">Game Mode</a></li>
         <li>
@@ -77,11 +82,6 @@
             </label>
           </a>
         </li>
-        <li>
-          <div class="divider"></div>
-        </li>
-        <li><a href="#!">Change Password</a></li>
-        <li><a href="#!">Log Out</a></li>
       </ul>
 
       <!-- Gameboard -->
@@ -171,12 +171,15 @@
         
       <div id="history-page" class="nm-page">
         <section>
-          <h2>Game History</h2>
           <p class="subtext">While logged in, your game history is<br/> tracked so you can view past games.</p>
-          <button type="button" id="get-game-history">View Game History</button>
           <table id="game-history" class="game-history">
           </table>
         </section>
+        <div class="nm-back-wrapper">
+          <button id="back-from-history" class="btn waves-effect waves-light light-blue lighten-2 nm-back" type="submit" name="action">
+            <i class="material-icons right">arrow_back</i>Back To Game
+          </button>
+        </div>
       </div>
         
     </body>
