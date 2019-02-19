@@ -170,3 +170,5 @@ let chooseCell = function (cells, gamepiece) {
 }
 
 // ['', '', '', '', '', '', '', '', '' ]
+
+module.exports = { chooseCell, }

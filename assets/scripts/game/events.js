@@ -2,10 +2,18 @@ const game = require(`./game`)
 const api = require(`./api`)
 const ui = require(`./ui`)
 const store = require(`../store`)
+const ai = require(`./ai`)
 
 const onSelectSpace = event => {
     // set space on board
     game.selectSpace(event.target)
+    // get board
+    setTimeout(() => {
+        const board = game.getBoard()
+        const aiPick = ai.chooseCell(board.cells, board.turn)
+        const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
+        game.selectSpace(target)
+    }, 100)
 }
 
 const onReset = () => {

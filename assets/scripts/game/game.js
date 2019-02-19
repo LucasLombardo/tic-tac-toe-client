@@ -58,4 +58,8 @@ const reset = () => {
     }
 }
 
-module.exports = { selectSpace, reset, }
+const getBoard = () => {
+    return { cells: board.cells, turn: board.turn, }
+}
+
+module.exports = { selectSpace, reset, getBoard, }
