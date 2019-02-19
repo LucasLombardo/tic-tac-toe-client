@@ -79,7 +79,6 @@ const clearGameHistory = () => {
 }
 
 const askToSignIn = () => {
-    // $(`#sign-up-input`).reportValidity(`is not`)
     $(`#auth-message`).text(`You need to be logged in to do that!`)
     $(`#sign-up-input`).select()
 }

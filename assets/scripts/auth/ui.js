@@ -19,6 +19,8 @@ const signInSuccess = responseData => {
     $(`#sign-up-form`).hide()
     $(`#change-password-form`).show()
     $(`#sign-out-form`).show()
+    $(`#open-auth`).text(`Change Password`)
+    $(`#sign-out-link`).show()
 }
 
 const signInFailure = e => {
@@ -47,6 +49,8 @@ const signOutSuccess = e => {
     $(`#sign-out-form`).hide()
     $(`#sign-in-form`).show()
     $(`#sign-up-form`).show()
+    $(`#open-auth`).text(`Sign In / Sign Up`)
+    $(`#sign-out-link`).hide()
 }
 
 const signOutFailure = e => {
@@ -56,6 +60,7 @@ const signOutFailure = e => {
 const init = () => {
     $(`#change-password-form`).hide()
     $(`#sign-out-form`).hide()
+    $(`#sign-out-link`).hide()
 }
 
 module.exports = {

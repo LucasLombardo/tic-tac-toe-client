@@ -24,8 +24,10 @@ const onGetGameHistory = () => {
             }, 1000)
             api.getGameHistory().then(ui.displayGameHistory)
         }
+        return true
     } else {
         ui.askToSignIn()
+        return false
     }
 }
 
