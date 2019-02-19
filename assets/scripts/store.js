@@ -12,7 +12,7 @@ const store = {
     },
     settings: {
         isVsAi: true,
-        difficulty: 2, // enum: 1, 2, or 3 with 3 being hardest
+        difficulty: 0, // enum: 0, 1, or 2 with 2 being hardest
     },
 
 }

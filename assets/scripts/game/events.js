@@ -11,7 +11,7 @@ const onSelectSpace = event => {
         const board = game.getBoard()
         const winner = game.getBoardWinner()
         if (!winner && store.settings.isVsAi) {
-            const aiPick = ai.chooseCell(board.cells, board.turn)
+            const aiPick = ai.chooseCell(board.cells, board.turn, store.settings.difficulty)
             const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
             game.selectSpace(target)
         }
@@ -24,7 +24,7 @@ const onReset = () => {
     // if turn is o, select space for Ai
     const board = game.getBoard()
     if (board.turn === `o` && store.settings.isVsAi) {
-        const aiPick = ai.chooseCell(board.cells, board.turn)
+        const aiPick = ai.chooseCell(board.cells, board.turn, store.settings.difficulty)
         const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
         game.selectSpace(target)
     }
