@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="unloaded">
     <head>
       <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,12 +9,21 @@
       <!-- Should this be linked in build tools somehow? don't want to miss out on caching benefits of google cdn -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+      <style>
+        html {
+          transition: opacity .8s;
+        }
+        .unloaded {
+          visibility: hidden;
+          opacity: 0;
+        }
+      </style>
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      
+
       <!-- Top Nav Bar -->
       <nav class="light-blue">
         <div class="container">

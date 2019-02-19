@@ -4,6 +4,7 @@ const authEvents = require(`./auth/events`)
 const gameEvents = require(`./game/events`)
 
 $(() => {
+    $(`html`).removeClass(`unloaded`)
     authEvents.onLoad()
     $(`#sign-up-form`).on(`submit`, authEvents.onSignUp)
     $(`#sign-in-form`).on(`submit`, authEvents.onSignIn)
