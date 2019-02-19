@@ -84,6 +84,8 @@ nav {
 }
 
 .gameboard--marker {
+  background: none;
+  border: 0;
   display: block;
   font-size: 2em;
   height: 100%;
@@ -91,6 +93,10 @@ nav {
   margin: 0;
   text-align: center;
   width: 100%;
+
+  &:focus {
+    background: none;
+  }
 }
 
 .auth {
@@ -112,4 +118,19 @@ nav {
   padding-bottom: 2em;
   position: absolute;
   width: 100%;
+}
+
+.nm-footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+
+  .container {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      margin-bottom: 1em;
+    }
+  }
 }

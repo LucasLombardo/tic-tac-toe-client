@@ -86,41 +86,47 @@
 
       <!-- Gameboard -->
       <div id="game-page" class="nm-page">
-        <h2 id="game-message"></h2>
-        <p id="player-turn-message">X's Turn</p>
-        <main class="gameboard">
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="0"></button>
+        <div class="container">
+          <h4 id="game-message"></h2>
+          <p id="player-turn-message">X's Turn</p>
+          <main class="gameboard">
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="0"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="1"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="2"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="3"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="4"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="5"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="6"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="7"></button>
+            </div>
+            <div class="gameboard--space" >
+              <button type="button" class="gameboard--marker" data-marker="8"></button>
+            </div>
+          </main>
+        </div>
+        <footer class="nm-footer">
+          <div class="container">
+            <a id="reset" class="btn-floating btn-large waves-effect waves-light light-blue lighten-2"><i class="material-icons">replay</i></a>
           </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="1"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="2"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="3"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="4"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="5"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="6"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="7"></button>
-          </div>
-          <div class="gameboard--space" >
-            <button type="button" class="gameboard--marker" data-marker="8"></button>
-          </div>
-        </main>
-        <button id="reset" type="button">Reset Board</button>
+        </footer>
       </div>
         
-      <!-- Authentication -->
+        <!-- Authentication -->
       <div id="auth-page" class="nm-page">
         <div class="container">
           <section class="auth">
