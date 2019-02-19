@@ -1,19 +1,16 @@
 const Gameboard = require(`./gameboard`)
 
-/* eslint no-unused-vars: 0 no-var: 0  */
-/* eslint prefer-const: 0 */
+// shuffleArr algorithm taken from Fisher Yates algorithm
 
 // helper functions
 
 const countOpenCells = function (cells) {
-    // console.log(`countOpenCells`)
-    // counts remaining open cells
+    // counts remaining open cells, returns the count
     return cells.filter(cell => cell).length
 }
 
 const isWinnable = function (cells, gamepiece) {
-    // console.log(`isWinnable`)
-    // checks if game is winnable by gamepiece
+    // checks if game is winnable by given gamepiece, returns the index of win or undefined
     for (let i = 0; i < 9; i++) {
         // loop through each space checking if it would win the game
         const testSpace = new Gameboard(gamepiece, [ ...cells, ])
@@ -24,8 +21,7 @@ const isWinnable = function (cells, gamepiece) {
 }
 
 const rotateClockwise = function (cells) {
-    // console.log(`rotateClockwise`)
-    // rotates a gameboard clockwise
+    // rotates an array of cells clockwise, returns rotated array
     return [].concat(
         cells[6],
         cells[3],
@@ -39,15 +35,11 @@ const rotateClockwise = function (cells) {
     )
 }
 
-let isForked = function (cells, gamepiece) {
-    // console.log(`isForked`)
-    // check if game is forked by gamepiece, assumes game is not already won/winnable
-
-    let testCells = [ ...cells, ]
-
+const isForked = function (cells, gamepiece) {
+    // checks if game is forked by gamepiece, returns boolean
+    let testCells = [ ...cells, ] // copy cells
     for (let i = 0; i < 4; i++) {
         // loop through 4 sides of the gameboard, rotating it clockwise on each iteration
-
         if (
             gamepiece === testCells[0] &&
             gamepiece === testCells[2] &&
@@ -56,7 +48,6 @@ let isForked = function (cells, gamepiece) {
             // if first style of fork is set up, check if there are two open slots to win
             if ([ testCells[1], testCells[6], testCells[8], ].join().length < 4) { return true }
         }
-
         if (
             gamepiece === testCells[0] &&
             gamepiece === testCells[2] &&
@@ -65,17 +56,15 @@ let isForked = function (cells, gamepiece) {
             // if second style of fork is set up, check if there are two open slots to win
             if ([ testCells[1], testCells[4], testCells[5], ].join().length < 4) { return true }
         }
-
         // rotate test cells
         testCells = rotateClockwise(testCells)
     }
-
+    // if no fork found, return false
     return false
 }
 
 const isForkable = function (cells, gamepiece) {
-    // console.log(`isForkable`)
-    // takes cells and a gamepiece and returns index to fork if forkable
+    // takes cells and a gamepiece and returns index to fork if forkable, undefined if unforkable
     for (let i = 0; i < 9; i++) {
         // loop through cells, checking if placing gamepiece there creates a fork
         const test = new Gameboard(gamepiece, [ ...cells, ])
@@ -86,12 +75,11 @@ const isForkable = function (cells, gamepiece) {
 }
 
 const shuffleArr = function (arr) {
-    // console.log(`shuffleArr`)
     // shuffles an array in random order
     // adapted to JS from Fisher-Yates shuffle algorithm
-    var currentIndex = arr.length
-    var temporaryValue
-    var randomIndex
+    let currentIndex = arr.length
+    let temporaryValue
+    let randomIndex
     // While there remain elements to shuffle...
     while (currentIndex !== 0) {
         // Pick a remaining element...
@@ -105,31 +93,31 @@ const shuffleArr = function (arr) {
     return arr
 }
 
-var selectCorner = function (cells, opponentGamepiece) {
-    // console.log(`selectCorner`)
-    // checks if there is an opposite corner available
+const selectCorner = function (cells, opponentGamepiece) {
+    // selects a corner space if available, returns index or undefined if no corners open
+    // check if there is an opposite corner available
     if (cells[0] === opponentGamepiece && cells[8] === ``) return 8
     if (cells[8] === opponentGamepiece && cells[0] === ``) return 0
     if (cells[2] === opponentGamepiece && cells[6] === ``) return 6
     if (cells[6] === opponentGamepiece && cells[2] === ``) return 2
     // check for empty corner, return random empty corner
-    var corners = shuffleArr([ 0, 2, 6, 8, ])
-    for (var i = 0; i < 4; i++) {
+    const corners = shuffleArr([ 0, 2, 6, 8, ])
+    for (let i = 0; i < 4; i++) {
         if (!cells[corners[i]]) return corners[i]
     }
     return undefined
 }
 
-var selectSide = function (cells) {
-    // console.log(`selectSide`)
-    // selects a random open side
-    var sides = shuffleArr([ 1, 5, 7, 3, ])
-    for (var i = 0; i < 4; i++) {
+const selectSide = function (cells) {
+    // selects a random open side, returns the index if available, undefined if not
+    const sides = shuffleArr([ 1, 5, 7, 3, ])
+    for (let i = 0; i < 4; i++) {
         if (!cells[sides[i]]) return sides[i]
     }
     return undefined
 }
 
+// eslint-disable-next-line
 const print = function (cells) {
     // arranges cells in a grid for logging to console
     const str = cells.map(cell => (cell || ` `)).join(`|`)
@@ -138,73 +126,71 @@ const print = function (cells) {
     console.log(`|` + str.slice(12, 17) + `|`)
 }
 
-let chooseCell = function (cells, gamepiece, difficulty) {
-    console.log(`============`)
-    console.log(`chooseCell piece= ${gamepiece}`)
-    print(cells)
-    console.log(`============`)
+const rand1to100 = function () {
+    // selects a random number from 1 to 100
+    return Math.floor(Math.random() * 100) + 1
+}
+
+const chooseCell = function (cells, gamepiece, difficulty) {
+    // chooses a cell for ai to pick, based on a given difficulty level 0-2
+    // returns the index of selection, undefined if gameboard is full
+
+    // console.log(`============`)
+    // console.log(`chooseCell piece= ${gamepiece}`)
+    // print(cells)
+    // console.log(`============`)
+
     const opponentGamepiece = gamepiece === `x` ? `o` : `x`
 
-    // Set difficulty levels (percentage of the time to do action, index 0 easy, 2 hard)
-    const rand1to100 = () => Math.floor(Math.random() * 100) + 1
-    // set booleans whether to do actions, based on times in 100 to do the action
-    const checkToBlockWin = [ 75, 90, 99, ][ difficulty ] > rand1to100()
-    const checkToFork = [ 75, 90, 97, ][ difficulty ] > rand1to100()
-    const checkToBlockFork = [ 75, 90, 95, ][ difficulty ] > rand1to100()
+    // DIFFICULTY LOGIC
+    // Based on difficulty, select % of the time to do correct move. Use random
+    // number from 1 to 100 to set a boolean to true if rule should be ignored.
+    // Array order [ easy, med, hard ], selected via index by difficulty param.
+    const checkToBlockWin = [ 60, 90, 97, ][ difficulty ] > rand1to100()
+    const checkToFork = [ 60, 80, 97, ][ difficulty ] > rand1to100()
+    const checkToBlockFork = [ 30, 80, 90, ][ difficulty ] > rand1to100()
+
+    // MAIN AI LOGIC
+    // Follow steps from Newell and Simon's 1972 tic-tac-toe program
 
     // 1) if first move select a random corner or center space
     if (!countOpenCells(cells)) {
-        console.log(`1.) first move`)
+        // if all cells are open, return random corner or center
         return [ 0, 2, 4, 6, 8, ][Math.floor(Math.random() * 5)]
     }
 
     // 2) check if winnable, if so return space to win; concat board squares to avoid mutation
     const winnable = isWinnable(cells, gamepiece)
     if (winnable !== undefined) return winnable
-    console.log(`2.)`)
 
     // 3) check if block needed
     if (checkToBlockWin) {
         const blockable = isWinnable(cells, opponentGamepiece)
         if (blockable !== undefined) return blockable
-        console.log(`3.)`)
-    } else {
-        console.log(`ignore checking for block win step`)
     }
 
     // 4) check for fork opportunity
     if (checkToFork) {
         const forkable = isForkable(cells, gamepiece)
         if (forkable !== undefined) return forkable
-        console.log(`4.)`)
-    } else {
-        console.log(`ignore checking for fork step`)
     }
 
     // 5) check for fork block
     if (checkToBlockFork) {
         const forkBlockable = isForkable(cells, opponentGamepiece)
         if (forkBlockable !== undefined) return forkBlockable
-        console.log(`5.)`)
-    } else {
-        console.log(`ignore checking for block fork step`)
     }
 
     // 6) check for center
     if (cells[4] === ``) return 4
-    console.log(`6.)`)
 
     // 7) check for opposite corner to opponent or empty corner
     const selectCornerResult = selectCorner(cells, opponentGamepiece)
     if (selectCornerResult !== undefined) return selectCornerResult
-    console.log(`7.)`)
 
     // 8) check for empty side
     const selectSideResult = selectSide(cells)
     if (selectSideResult !== undefined) return selectSideResult
-    console.log(`8.)`)
 }
-
-// ['', '', '', '', '', '', '', '', '' ]
 
 module.exports = { chooseCell, }
