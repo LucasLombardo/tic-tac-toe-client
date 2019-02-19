@@ -1,3 +1,4 @@
+import * as Vivus from 'vivus'
 const Gameboard = require(`./gameboard`)
 
 const updateCell = (target, currTurn) => {
