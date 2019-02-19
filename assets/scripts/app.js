@@ -2,6 +2,7 @@
 
 const authEvents = require(`./auth/events`)
 const gameEvents = require(`./game/events`)
+const store = require(`./store`)
 
 $(() => {
     $(`html`).removeClass(`unloaded`)
@@ -14,6 +15,15 @@ $(() => {
     $(`#reset`).on(`click`, gameEvents.onReset)
 
     $(`.sidenav`).sidenav()
+
+    // ai toggle
+    $(`#play-vs-ai`).on(`click`, () => {
+        store.settings.isVsAi = !store.settings.isVsAi
+        // manually set checkbox to current value
+        $(`#ai-checkbox`).prop(`checked`, store.settings.isVsAi)
+        // return false to avoid jQuery running this twice per click
+        return false
+    })
 
     // hide pages
     $(`#auth-page`).hide()

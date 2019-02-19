@@ -10,6 +10,11 @@ const store = {
         reset: false,
         getGameHistory: false,
     },
+    settings: {
+        isVsAi: true,
+        difficulty: 2, // enum: 1, 2, or 3 with 3 being hardest
+    },
+
 }
 
 module.exports = store

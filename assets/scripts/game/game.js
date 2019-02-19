@@ -31,8 +31,10 @@ const selectSpace = target => {
         }
         // pass assembled object to api
         api.updateGame(patchObj)
+        return true
     } else {
         ui.invalidCell()
+        return false
     }
 }
 
@@ -62,4 +64,9 @@ const getBoard = () => {
     return { cells: board.cells, turn: board.turn, }
 }
 
-module.exports = { selectSpace, reset, getBoard, }
+const getBoardWinner = () => {
+    board.checkForWinner()
+    return board.winner
+}
+
+module.exports = { selectSpace, reset, getBoard, getBoardWinner, }

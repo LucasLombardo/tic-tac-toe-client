@@ -6,19 +6,28 @@ const ai = require(`./ai`)
 
 const onSelectSpace = event => {
     // set space on board
-    game.selectSpace(event.target)
-    // get board
-    setTimeout(() => {
+    if (game.selectSpace(event.target)) {
+        // if space selection was successful, check if AI should move
         const board = game.getBoard()
-        const aiPick = ai.chooseCell(board.cells, board.turn)
-        const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
-        game.selectSpace(target)
-    }, 100)
+        const winner = game.getBoardWinner()
+        if (!winner && store.settings.isVsAi) {
+            const aiPick = ai.chooseCell(board.cells, board.turn)
+            const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
+            game.selectSpace(target)
+        }
+    }
 }
 
 const onReset = () => {
     // reset board
     game.reset()
+    // if turn is o, select space for Ai
+    const board = game.getBoard()
+    if (board.turn === `o` && store.settings.isVsAi) {
+        const aiPick = ai.chooseCell(board.cells, board.turn)
+        const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
+        game.selectSpace(target)
+    }
 }
 
 const onGetGameHistory = () => {
