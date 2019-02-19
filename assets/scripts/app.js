@@ -73,4 +73,29 @@ $(() => {
 
     // sign out button on nav
     $(`#sign-out-link`).on(`click`, authEvents.onSignOut)
+
+    // handle ai difficulty switches
+    $(`#difficulty-0`).on(`click`, () => {
+        store.settings.difficulty = 0
+        $(`input[name='difficulty-group']`).attr(`checked`, false)
+        $(`#difficulty-0-radio`).attr(`checked`, `checked`)
+        console.log(store.settings)
+        return false
+    })
+
+    $(`#difficulty-1`).on(`click`, () => {
+        store.settings.difficulty = 1
+        $(`input[name='difficulty-group']`).attr(`checked`, false)
+        $(`#difficulty-1-radio`).attr(`checked`, `checked`)
+        console.log(store.settings)
+        return false
+    })
+
+    $(`#difficulty-2`).on(`click`, () => {
+        store.settings.difficulty = 2
+        $(`input[name='difficulty-group']`).attr(`checked`, false)
+        $(`#difficulty-2-radio`).attr(`checked`, `checked`)
+        console.log(store.settings)
+        return false
+    })
 })
