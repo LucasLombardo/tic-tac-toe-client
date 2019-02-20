@@ -11,7 +11,11 @@ $(() => {
     $(`#sign-in-form`).on(`submit`, authEvents.onSignIn)
     $(`#change-password-form`).on(`submit`, authEvents.onChangePassword)
     $(`#sign-out-form`).on(`submit`, authEvents.onSignOut)
-    $(`.gameboard--marker`).on(`click`, gameEvents.onSelectSpace)
+    $(`.gameboard--marker`).on(`click`, function (e) {
+        // only trigger click on gameboard marker, ignore descendents
+        if (e.target !== this) return
+        gameEvents.onSelectSpace(e)
+    })
     $(`#reset`).on(`click`, gameEvents.onReset)
 
     $(`.sidenav`).sidenav()

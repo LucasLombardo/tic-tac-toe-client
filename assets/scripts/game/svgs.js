@@ -1,22 +1,23 @@
+const strokeColor = `#eeeeee`
 
 const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M9.5,11c0,0,45.5,54.5,84,82.5S189,181,189,188"
-                />
+            />
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M9.5,188c0,0,14-19,37-36.5s40.5-37,42.5-41
@@ -27,20 +28,20 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M9.5,9.5c0,0,42.5,26.5,84.5,82s92,100,93.5,100"
             />
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M187.5,9.5c0,0-22,24.5-31.5,33.5s-38,33-42,37.5
@@ -51,13 +52,13 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M10.5,8.5c0,0,21,30,41.5,50s63.5,51,70,59
@@ -65,7 +66,7 @@ const Xs = [
             />
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M10.5,190.5c0,0,36-44,54.5-58.5s57-50,65.5-58
@@ -76,13 +77,13 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M13,8c0,0,28,38,62,70s75.5,71,82.5,78
@@ -90,7 +91,7 @@ const Xs = [
             />
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M9.5,189c0,0,16-22.5,40-39.5s49-56,64.5-67.5
@@ -101,13 +102,13 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M9,12.5c0,0,46.5,36.5,55,45s31.5,35,39.5,42.5
@@ -115,7 +116,7 @@ const Xs = [
             />
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M191.5,12.5c0,0-10.5,11.5-16,16S139,59,137,62.5
@@ -129,13 +130,13 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
         <path
             fill="none"
-            stroke="#000000"
+            stroke="${strokeColor}"
             stroke-width="6"
             stroke-miterlimit="10"
             d="M45,24c0,0-19,11.5-30,41.5S1,131,30,160
@@ -146,13 +147,13 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M84.5,10.5c0,0-38.5,5.5-53,31s-31,37-23.5,72
@@ -163,13 +164,13 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M11,101c0,0-0.5,33,10.5,49s36.5,37,55,42
@@ -181,13 +182,13 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M37.5,36c0,0-28.5,15.5-28,59.5S23,158,37.5,171
@@ -198,13 +199,13 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="200px"
-            height="200px"
+            width="80px"
+            height="80px"
             viewBox="0 0 200 200"
         >
             <path
                 fill="none"
-                stroke="#000000"
+                stroke="${strokeColor}"
                 stroke-width="6"
                 stroke-miterlimit="10"
                 d="M71.04,18.296c0,0-27.564,9.844-42.331,28.549

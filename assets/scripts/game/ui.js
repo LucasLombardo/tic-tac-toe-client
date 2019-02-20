@@ -1,8 +1,21 @@
-import * as Vivus from 'vivus'
+import Vivus from 'vivus'
+import svg from './svgs'
 const Gameboard = require(`./gameboard`)
 
+// const x = new Vivus(`animate`)
+
 const updateCell = (target, currTurn) => {
-    $(target).text(currTurn)
+    // create unique id to give the svg
+    const svgId = `svg-${target.dataset.marker}`
+    const svgArr = (currTurn === `x`) ? svg.Xs : svg.Os
+    // select random one of 5 svgs in the array
+    $(target).html(svgArr[Math.floor(Math.random() * 5)])
+    // give the svg the unique id
+    $(target).children().attr(`id`, svgId)
+    // start Vivus.js animation (animation is side effect of constructor)
+    // eslint-disable-next-line
+    new Vivus(svgId, { duration: 40, type: `oneByOne`, })
+    // clear game message
     $(`#game-message`).text(``)
 }
 
