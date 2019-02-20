@@ -9,6 +9,7 @@ const store = {
         // if set to true, disallow another request
         reset: false,
         getGameHistory: false,
+        selectSpace: false,
     },
     settings: {
         isVsAi: true,

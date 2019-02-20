@@ -1,5 +1,13 @@
 'use strict'
 
+// APP Settings
+
+const appSettings = {
+    aiDelay: 1000, // time for ai to take turn in ms
+
+}
+
+// API Base URLS
 let apiUrl
 const apiUrls = {
     production: `https://tic-tac-toe-wdi-production.herokuapp.com/`,
@@ -14,4 +22,5 @@ if (window.location.hostname === `localhost`) {
 
 module.exports = {
     apiUrl,
+    appSettings,
 }

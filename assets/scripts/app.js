@@ -7,6 +7,7 @@ const store = require(`./store`)
 $(() => {
     $(`html`).removeClass(`unloaded`)
     authEvents.onLoad()
+    $(`.nm-logo`).on(`click`, () => { console.log(store) })
     $(`#sign-up-form`).on(`submit`, authEvents.onSignUp)
     $(`#sign-in-form`).on(`submit`, authEvents.onSignIn)
     $(`#change-password-form`).on(`submit`, authEvents.onChangePassword)

@@ -3,9 +3,12 @@ const api = require(`./api`)
 const ui = require(`./ui`)
 const store = require(`../store`)
 const ai = require(`./ai`)
+const config = require(`../config`)
 
 const onSelectSpace = event => {
     // set space on board
+    // abort request if it is ai's turn still
+    if (store.requestlimits.selectSpace) return
     if (game.selectSpace(event.target)) {
         // if space selection was successful, check if AI should move
         const board = game.getBoard()
@@ -13,7 +16,12 @@ const onSelectSpace = event => {
         if (!winner && store.settings.isVsAi) {
             const aiPick = ai.chooseCell(board.cells, board.turn, store.settings.difficulty)
             const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
-            game.selectSpace(target)
+            // block space selection while ai is taking turn
+            store.requestlimits.selectSpace = true
+            setTimeout(() => {
+                game.selectSpace(target)
+                store.requestlimits.selectSpace = false
+            }, config.appSettings.aiDelay)
         }
     }
 }
@@ -26,7 +34,12 @@ const onReset = () => {
     if (board.turn === `o` && store.settings.isVsAi) {
         const aiPick = ai.chooseCell(board.cells, board.turn, store.settings.difficulty)
         const target = document.querySelector(`.gameboard--marker[data-marker='${aiPick}']`)
-        game.selectSpace(target)
+        // block space selection while ai is taking turn
+        store.requestlimits.selectSpace = true
+        setTimeout(() => {
+            game.selectSpace(target)
+            store.requestlimits.selectSpace = false
+        }, config.appSettings.aiDelay)
     }
 }
 
