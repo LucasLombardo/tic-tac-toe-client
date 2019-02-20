@@ -12,6 +12,9 @@
 }
 
 nav {
+  position: relative;
+  z-index: 10;
+
   .sidenav-trigger {
     margin: 0;
   }

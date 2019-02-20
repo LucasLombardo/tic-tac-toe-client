@@ -8,8 +8,8 @@ form {
 }
 
 .auth {
+  height: calc(100vh - 115px);
   margin: 0 auto;
-  max-height: 80vh;
-  max-width: 800px;
+  min-height: 100px;
   overflow-y: scroll;
 }

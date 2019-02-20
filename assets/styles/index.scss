@@ -6,7 +6,7 @@
 @import 'nav';
 
 // === === === === === === === === ===
-// Footer with restart button
+// Baseline styles
 // === === === === === === === === ===
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 p {
-  font-size: 1.4em;
+  font-size: 1em;
 }
 
 a {
@@ -36,7 +36,7 @@ a {
 .nm-back-wrapper {
   bottom: 0;
   left: 0;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   position: absolute;
   width: 100%;
 }
