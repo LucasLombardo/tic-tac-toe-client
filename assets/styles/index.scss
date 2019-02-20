@@ -12,6 +12,11 @@ p, th, td {
   font-size: 1.4em;
 }
 
+.nm-history-table {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
 form {
   text-align: left;
 }
