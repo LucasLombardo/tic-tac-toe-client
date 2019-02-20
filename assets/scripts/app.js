@@ -26,6 +26,8 @@ $(() => {
         store.settings.isVsAi = !store.settings.isVsAi
         // manually set checkbox to current value
         $(`#ai-checkbox`).prop(`checked`, store.settings.isVsAi)
+        // reset gameboard
+        gameEvents.onReset()
         // return false to avoid jQuery running this twice per click
         return false
     })
@@ -44,6 +46,8 @@ $(() => {
 
     // back from auth
     $(`#back-from-auth`).on(`click`, () => {
+        // reset gameboard
+        gameEvents.onReset()
         $(`#auth-page`).fadeOut(`fast`, () => {
             $(`#game-page`).fadeIn(`slow`)
         })
@@ -70,6 +74,8 @@ $(() => {
 
     // back from history
     $(`#back-from-history`).on(`click`, () => {
+        // reset board
+        gameEvents.onReset()
         $(`#history-page`).fadeOut(`fast`, () => {
             $(`#game-page`).fadeIn(`slow`)
         })
