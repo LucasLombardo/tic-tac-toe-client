@@ -1,11 +1,9 @@
-const strokeColor = `#eeeeee`
+const strokeColor = `rgba(255, 255, 255, .8)`
 
 const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -28,8 +26,6 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -52,8 +48,6 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -77,8 +71,6 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -102,8 +94,6 @@ const Xs = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -130,8 +120,6 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
         <path
@@ -147,8 +135,6 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -164,8 +150,6 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -182,8 +166,6 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path
@@ -199,8 +181,6 @@ const Os = [
     `
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80px"
-            height="80px"
             viewBox="0 0 200 200"
         >
             <path

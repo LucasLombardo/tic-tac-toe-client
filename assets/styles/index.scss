@@ -51,22 +51,23 @@ nav {
 }
 
 .gameboard {
-  background: url('../../media/zwartevilt.png');
+  background: $black;
+  background: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1)), url('../../media/zwartevilt.png');
   background-size: 200%;
   border-radius: 5px;
   display: grid;
-  grid-auto-rows: 100px;
   grid-template-columns: repeat(3, 1fr);
-  height: 320px;
+  grid-template-rows: repeat(3, 1fr);
+  height: 100%;
   margin: auto;
   padding: 10px;
   transform: perspective(600px) rotateX(45deg);
-  width: 320px;
+  width: 100%;
 }
 
 .gameboard--space {
   // sass-lint:disable-block force-pseudo-nesting
-  border: 2px solid $light-gray;
+  border: 2px solid rgba(255, 255, 255, .8);
 
   &:nth-of-type(n+1):nth-of-type(-n+3) {
     // top row
@@ -89,16 +90,45 @@ nav {
   }
 }
 
+.nm-aspect-ratio-1x1 {
+  margin: 0 auto;
+  max-height: 50vh;
+  max-width: 50vh;
+  min-width: 280px;
+  position: relative;
+  width: 50%;
+
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  .nm-aspect-ratio-1x1-content {
+    border: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .gameboard--marker {
   background: none;
   border: 0;
   display: block;
   font-size: 2em;
   height: 100%;
-  line-height: 100px;
   margin: 0;
   text-align: center;
   width: 100%;
+
+  svg {
+    height: 80%;
+    width: 80%;
+  }
 
   &:focus {
     background: none;
