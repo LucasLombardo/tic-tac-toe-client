@@ -135,10 +135,10 @@ const chooseCell = function (cells, gamepiece, difficulty) {
     // chooses a cell for ai to pick, based on a given difficulty level 0-2
     // returns the index of selection, undefined if gameboard is full
 
-    // console.log(`============`)
-    // console.log(`chooseCell piece= ${gamepiece}`)
-    // print(cells)
-    // console.log(`============`)
+    console.log(`============`)
+    console.log(`chooseCell piece=${gamepiece} difficulty=${difficulty}`)
+    print(cells)
+    console.log(`============`)
 
     const opponentGamepiece = gamepiece === `x` ? `o` : `x`
 
@@ -150,6 +150,8 @@ const chooseCell = function (cells, gamepiece, difficulty) {
     const checkToFork = [ 60, 80, 97, ][ difficulty ] > rand1to100()
     const checkToBlockFork = [ 30, 80, 90, ][ difficulty ] > rand1to100()
 
+    console.log(`checkToBlockWin = ${checkToBlockFork} checkToFork = ${checkToFork} checkToBlockFork = ${checkToBlockFork}`)
+    console.log(`============`)
     // MAIN AI LOGIC
     // Follow steps from Newell and Simon's 1972 tic-tac-toe program
 

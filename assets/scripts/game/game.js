@@ -7,6 +7,10 @@ const store = require(`../store`)
 const board = new Gameboard()
 
 const selectSpace = target => {
+    console.log(`//////////////`)
+    console.log(`selectSpace`)
+    console.log(target)
+    console.log(`//////////////`)
     const currTurn = board.turn
     // if valid space selected, print to ui
     const space = target.dataset.marker

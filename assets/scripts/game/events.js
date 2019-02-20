@@ -6,6 +6,8 @@ const ai = require(`./ai`)
 const config = require(`../config`)
 
 const onSelectSpace = event => {
+    console.log(`onSelectSpace`)
+    console.log(event)
     // set space on board
     // abort request if it is ai's turn still
     if (store.requestlimits.selectSpace) return

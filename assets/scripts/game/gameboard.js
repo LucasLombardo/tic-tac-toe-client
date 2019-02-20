@@ -8,10 +8,6 @@ const Gameboard = function (turn, cells, user) {
 
 Gameboard.prototype = {
 
-    printCells: function () {
-        console.log(this.cells)
-    },
-
     selectCell: function (cellIndex) {
         // if cell unavailable, returns false
         if (this.cells[cellIndex] || this.winner) {
