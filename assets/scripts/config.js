@@ -3,7 +3,7 @@
 // APP Settings
 
 const appSettings = {
-    aiDelay: 1000, // time for ai to take turn in ms
+    aiDelay: 700, // time for ai to take turn in ms
 
 }
 

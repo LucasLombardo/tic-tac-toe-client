@@ -14,7 +14,7 @@ const updateCell = (target, currTurn) => {
     $(target).children().attr(`id`, svgId)
     // start Vivus.js animation (animation is side effect of constructor)
     // eslint-disable-next-line
-    new Vivus(svgId, { duration: 40, type: `oneByOne`, })
+    new Vivus(svgId, { duration: 25, type: `oneByOne`, })
     // clear game message
     $(`#game-message`).text(``)
 }
