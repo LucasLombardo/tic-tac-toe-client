@@ -1,6 +1,9 @@
 import Vivus from 'vivus'
 import svg from './svgs'
+const messages = require(`../messages`)
+const shuffleArr = require(`../../../lib/shuffleArr`)
 const Gameboard = require(`./gameboard`)
+const store = require(`../store`)
 
 // const x = new Vivus(`animate`)
 
@@ -25,17 +28,27 @@ const invalidCell = () => {
 
 const displayWinner = winner => {
     if (winner.length === 1) {
-        $(`#game-message`).text(`Winner is ${winner.toUpperCase()}. Reset board to play again!`)
+        if (store.settings.isVsAi) {
+            const msg = winner === `o` ? shuffleArr(messages.broWins) : shuffleArr(messages.userWins)
+            $(`#game-message`).text(msg)
+        } else {
+            $(`#game-message`).text(`Winner is ${winner.toUpperCase()}. Reset board to play again!`)
+        }
     } else {
-        $(`#game-message`).text(`Tie game. Reset board to play again!`)
+        $(`#game-message`).text(shuffleArr(messages.tie)[0])
     }
 }
 
 const updateTurn = (turn, won = false) => {
     if (!won) {
-        $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn`)
+        if (store.settings.isVsAi) {
+            const msg = turn === `o` ? shuffleArr(messages.brosTurn) : shuffleArr(messages.usersTurn)
+            $(`#player-turn-message`).text(msg)
+        } else {
+            $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn.`)
+        }
     } else {
-        $(`#player-turn-message`).text(`Game is over.`)
+        $(`#player-turn-message`).text(shuffleArr(messages.gameOver)[0])
     }
 }
 
@@ -93,7 +106,7 @@ const clearGameHistory = () => {
 }
 
 const askToSignIn = () => {
-    $(`#auth-message`).text(`You need to be logged in to do that!`)
+    $(`#auth-message`).text(`Who do you know here, chief?! You need to be logged in to do that.`)
     $(`#sign-up-input`).select()
 }
 

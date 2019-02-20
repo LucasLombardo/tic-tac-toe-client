@@ -1,18 +1,20 @@
 
 const store = require(`../store`)
+const messages = require(`../messages`)
+const shuffleArr = require(`../../../lib/shuffleArr`)
 
 const signUpSuccess = () => {
-    $(`#auth-message`).text(`Successfully signed up`)
+    $(`#auth-message`).text(shuffleArr(messages.signUpSuccess)[0])
     $(`form`).trigger(`reset`)
 }
 
 const signUpFailure = e => {
-    $(`#auth-message`).text(`Error: ${e.responseText}`)
+    $(`#auth-message`).text(shuffleArr(messages.signUpFailure)[0])
     $(`form`).trigger(`reset`)
 }
 
 const signInSuccess = responseData => {
-    $(`#auth-message`).text(`Successfully signed in`)
+    $(`#auth-message`).text(shuffleArr(messages.signInSuccess)[0])
     $(`form`).trigger(`reset`)
     store.user = responseData.user
     $(`#sign-in-form`).hide()
@@ -26,23 +28,23 @@ const signInSuccess = responseData => {
 }
 
 const signInFailure = e => {
-    $(`#auth-message`).text(`Error: ${e.statusText}`)
+    $(`#auth-message`).text(shuffleArr(messages.signInFailure)[0])
     $(`form`).trigger(`reset`)
 }
 
 const changePasswordSuccess = e => {
-    $(`#auth-message`).text(`successfully changed pw`)
+    $(`#auth-message`).text(shuffleArr(messages.changePwSuccess)[0])
     $(`form`).trigger(`reset`)
 }
 
 const changePasswordFailure = e => {
-    $(`#auth-message`).text(`Failed to change pw`)
+    $(`#auth-message`).text(shuffleArr(messages.changePwFailure)[0])
     $(`form`).trigger(`reset`)
 }
 
 const signOutSuccess = e => {
     // display message and reset forms
-    $(`#auth-message`).text(`Successfully signed out.`)
+    $(`#auth-message`).text(shuffleArr(messages.signOutSuccess)[0])
     $(`form`).trigger(`reset`)
     // clear user token
     store.user.token = ``
@@ -58,7 +60,7 @@ const signOutSuccess = e => {
 }
 
 const signOutFailure = e => {
-    $(`#auth-message`).text(`Failed to sign out`)
+    $(`#auth-message`).text(shuffleArr(messages.signOutFailure)[0])
 }
 
 const init = () => {
