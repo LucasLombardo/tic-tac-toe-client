@@ -17,6 +17,7 @@ p, th, td {
   overflow-y: scroll;
 }
 
+
 form {
   text-align: left;
 }
@@ -190,7 +191,9 @@ nav {
 
 .auth {
   margin: 0 auto;
+  max-height: 80vh;
   max-width: 800px;
+  overflow-y: scroll;
 }
 
 .btn {
