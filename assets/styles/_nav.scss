@@ -21,6 +21,16 @@ nav {
 }
 
 .sidenav {
+  .nm-username {
+    font-size: 1.2em;
+  }
+
+  .nm-user-rank {
+    display: block;
+    font-style: italic;
+    padding: 0 0 .5em;
+  }
+
   .subheader {
     font-size: 1.4em;
     font-weight: bold;

@@ -21,6 +21,8 @@ const signInSuccess = responseData => {
     $(`#sign-out-form`).show()
     $(`#open-auth`).text(`Change Password`)
     $(`#sign-out-link`).show()
+    $(`#username`).text(`${store.user.email}`)
+    $(`#user-rank`).text(`Pledge`)
 }
 
 const signInFailure = e => {
@@ -51,6 +53,8 @@ const signOutSuccess = e => {
     $(`#sign-up-form`).show()
     $(`#open-auth`).text(`Sign In / Sign Up`)
     $(`#sign-out-link`).hide()
+    $(`#username`).text(``)
+    $(`#user-rank`).text(`Not Logged In`)
 }
 
 const signOutFailure = e => {
