@@ -7,10 +7,6 @@ const store = require(`../store`)
 const board = new Gameboard()
 
 const selectSpace = target => {
-    console.log(`//////////////`)
-    console.log(`selectSpace`)
-    console.log(target)
-    console.log(`//////////////`)
     const currTurn = board.turn
     // if valid space selected, print to ui
     const space = target.dataset.marker
@@ -23,7 +19,7 @@ const selectSpace = target => {
             ui.displayWinner(board.winner)
             ui.updateTurn(board.winner, true)
         }
-        // assemble object to update api
+        // assemble object for PATCH request to update API
         const patchObj = {
             "game": {
                 "cell": {
@@ -33,10 +29,12 @@ const selectSpace = target => {
                 "over": Boolean(board.winner),
             },
         }
-        // pass assembled object to api
+        // pass assembled object to API
         api.updateGame(patchObj)
+        // return true if space selection was valid
         return true
     } else {
+        // notify user and return false if space selection was invalid
         ui.invalidCell()
         return false
     }
@@ -44,20 +42,20 @@ const selectSpace = target => {
 
 const reset = () => {
     if (!store.requestlimits.reset) {
-        // limit requests to one per second
+        // limit reset requests to one per half second
         store.requestlimits.reset = true
         setTimeout(() => {
             store.requestlimits.reset = false
-        }, 1000)
+        }, 500)
         // reset board
         board.reset()
-        // create game in api
+        // create game in api, will return promise if user logged in, undefined if not
         const game = api.createGame()
         // if user was logged in, write gameId to store
         game && game.then(() => {
             store.gameId = game.responseJSON.game.id
         })
-        // reset ui game message
+        // reset ui and update the turn
         ui.resetGameMessage()
         ui.clearBoard()
         ui.updateTurn(board.turn)
@@ -65,10 +63,12 @@ const reset = () => {
 }
 
 const getBoard = () => {
+    // shares current board cells and turn with other files
     return { cells: board.cells, turn: board.turn, }
 }
 
 const getBoardWinner = () => {
+    // checks current board for winner and shares the result ('x','o','tie', or null)
     board.checkForWinner()
     return board.winner
 }

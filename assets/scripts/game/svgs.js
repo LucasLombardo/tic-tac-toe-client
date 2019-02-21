@@ -1,5 +1,7 @@
 const strokeColor = `rgba(255, 255, 255, .8)`
 
+// 5 svgs of both letters, made in illustrator and slightly modified to remove unneeded junk
+
 const Xs = [
     `
         <svg

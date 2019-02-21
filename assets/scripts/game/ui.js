@@ -5,7 +5,8 @@ const shuffleArr = require(`../../../lib/shuffleArr`)
 const Gameboard = require(`./gameboard`)
 const store = require(`../store`)
 
-// const x = new Vivus(`animate`)
+// note there are two paragraph tags for displaying messages in the HTML
+// #game-message for displaying winner messages, #player-turn-message for turns
 
 const updateCell = (target, currTurn) => {
     // create unique id to give the svg
@@ -16,6 +17,7 @@ const updateCell = (target, currTurn) => {
     // give the svg the unique id
     $(target).children().attr(`id`, svgId)
     // start Vivus.js animation (animation is side effect of constructor)
+    // NOTE: duration is in frames not time, oneByOne means one svg path at a time, no delay between them
     // eslint-disable-next-line
     new Vivus(svgId, { duration: 25, type: `oneByOne`, })
     // clear game message
@@ -23,11 +25,13 @@ const updateCell = (target, currTurn) => {
 }
 
 const invalidCell = () => {
+    // select a random invalidMove message to display
     $(`#game-message`).text(shuffleArr(messages.invalidMove)[0])
 }
 
 const displayWinner = winner => {
     if (winner.length === 1) {
+        // if game was not a tie, display relevant message based on gamepiece that won and whether in AI mode
         if (store.settings.isVsAi) {
             const msg = winner === `o` ? shuffleArr(messages.broWins)[0] : shuffleArr(messages.userWins)[0]
             $(`#game-message`).text(msg)
@@ -35,12 +39,14 @@ const displayWinner = winner => {
             $(`#game-message`).text(`Winner is ${winner.toUpperCase()}. Reset board to play again!`)
         }
     } else {
+        // otherwise display a random tie message (same for singleplayer and AI)
         $(`#game-message`).text(shuffleArr(messages.tie)[0])
     }
 }
 
 const updateTurn = (turn, won = false) => {
     if (!won) {
+        // if game not won, check if in AI or singleplayer mode then display relevant message
         if (store.settings.isVsAi) {
             const msg = turn === `o` ? shuffleArr(messages.brosTurn)[0] : shuffleArr(messages.usersTurn)[0]
             $(`#player-turn-message`).text(msg)
@@ -48,6 +54,7 @@ const updateTurn = (turn, won = false) => {
             $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn.`)
         }
     } else {
+        // if game won display random message that game is over
         $(`#player-turn-message`).text(shuffleArr(messages.gameOver)[0])
     }
 }
@@ -57,6 +64,7 @@ const resetGameMessage = () => {
 }
 
 const clearBoard = () => {
+    // NOTE: jQuery seems to automatically iterate over node lists, this selection expected to be length 9
     $(`.gameboard--marker`).text(``)
 }
 
@@ -86,7 +94,7 @@ const displayGameHistory = payload => {
         tableContents += `
             <tr>
                 <td>${gameNumber}</td>
-                <td>${winner}</td> 
+                <td>${winner.toUpperCase()}</td> 
                 <td>${turnsTaken}</td>
             </tr>
         `
@@ -97,15 +105,15 @@ const displayGameHistory = payload => {
     }
     // set table's html to newly constructed tableContents
     $(`#game-history`).html(tableContents)
-    $(`#get-game-history`).text(`Refresh Game History`)
 }
 
 const clearGameHistory = () => {
-    $(`#get-game-history`).text(`View Game History`)
+    // clear table data and headers
     $(`#game-history`).html(``)
 }
 
 const askToSignIn = () => {
+    // if user tries action not permitted while unsigned in, notify them and select first field of auth forms
     $(`#auth-message`).text(`Who do you know here, chief?! You need to be logged in to do that.`)
     $(`#sign-up-input`).select()
 }
