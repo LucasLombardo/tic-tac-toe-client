@@ -35,6 +35,10 @@ const displayWinner = winner => {
         if (store.settings.isVsAi) {
             const msg = winner === `o` ? shuffleArr(messages.broWins)[0] : shuffleArr(messages.userWins)[0]
             $(`#game-message`).text(msg)
+            // if bro lost, display angry bro picture
+            if (winner === `x`) {
+                $(`.nm-bro`).css(`background-image`, `url(` + `https://imagizer.imageshack.com/v2/347x425q90/923/qQlR96.jpg` + `)`)
+            }
         } else {
             $(`#game-message`).text(`Winner is ${winner.toUpperCase()}. Reset board to play again!`)
         }
@@ -66,6 +70,8 @@ const resetGameMessage = () => {
 const clearBoard = () => {
     // NOTE: jQuery seems to automatically iterate over node lists, this selection expected to be length 9
     $(`.gameboard--marker`).text(``)
+    // reset bro image to happy (will be mad if user won)
+    $(`.nm-bro`).css(`background-image`, `url(` + `https://imagizer.imageshack.com/img921/6088/ZyPmRq.jpg` + `)`)
 }
 
 const displayGameHistory = payload => {

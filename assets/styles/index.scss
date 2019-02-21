@@ -11,6 +11,17 @@
 
 body {
   text-align: center;
+
+  &::after {
+    // preload angry bro picture to avoid it flashing when displayed
+    // sass-lint:disable-block no-url-protocols no-url-domains
+    content: url('https://imagizer.imageshack.com/v2/347x425q90/923/qQlR96.jpg');
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    z-index: -10;
+  }
 }
 
 p {
