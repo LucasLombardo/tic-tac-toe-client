@@ -30,6 +30,8 @@ Currently the app has just finished the second major version release, v0.2.0
 
 Most of my day to day project planning has been done using Trello, where my strategy is adding every todo item I can think of to one of two lists, "core functionality" and "nice to haves". I prioritized core functionality and only did nice to have things if I felt like I had extra time or needed a break from core functionality work.
 
+My problem solving strategy was to extract issues to smaller amounts of code to drill down on exactly what was going wrong. I utilized console.logs, the developer tools, and codepen for testing out bugs and issues. I also used google/stackoverflow and the previous github issues to help solve problems I was having.
+
 ### Future versions / Unsolved problems
 
 This app is still a work in progress. Before the v1.0.0 release I would like to finish:
@@ -43,3 +45,9 @@ Currently unsolved but identified problems include
 -   Handling invalidated tokens if a user signs in from a different device and while still logged in on the first device.
 
 
+##### Attributions
+-   Frat bro cartoon was slightly modified from a sketch on https://www.listenandlearnusa.com/
+-   Ocean image was from unsplash.com
+-   Texture on gameboard was from toptal.com's subtle patterns library
+-   Chat bubble was generated from https://leaverou.github.io/bubbly/ chat bubble generator
+-   Used getFormFields function from GA starter files and the Fisher-Yates shuffle algorithm for shuffling arrays
