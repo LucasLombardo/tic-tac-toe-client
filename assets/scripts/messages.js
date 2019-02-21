@@ -45,6 +45,9 @@ const messages = {
         `Give me a chance to make my move.`,
         `My turn.`,
         `Let me see here. Which spot should I pick?`,
+        `My turn.`,
+        `I'm up.`,
+        `I'm up.`,
     ],
     usersTurn: [
         `You're up, chief. Make it count.`,
@@ -52,6 +55,8 @@ const messages = {
         `Will you make a move already, I don't have all day.`,
         `Take your turn, bro.`,
         `We're all waiting for you to take your turn...`,
+        `Your turn`,
+        `You're up, bud.`,
     ],
     oWins: [
         `"O"mg bro. O just totally won.`,
@@ -87,6 +92,7 @@ const messages = {
         `Woah, I can't let you place a marker there chief.`,
         `That spots not gonna work man.`,
         `You can't place a marker there.`,
+        `You can't move there! When pledges try to make invalid moves they get dropped.`,
     ],
 }
 
