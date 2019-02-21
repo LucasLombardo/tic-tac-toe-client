@@ -15,7 +15,7 @@ body {
   &::after {
     // preload angry bro picture to avoid it flashing when displayed
     // sass-lint:disable-block no-url-protocols no-url-domains
-    content: url('https://imagizer.imageshack.com/v2/347x425q90/923/qQlR96.jpg');
+    content: url('https://imagizer.imageshack.com/v2/347x425q90/923/qQlR96.jpg') url('https://imagizer.imageshack.com/img921/6088/ZyPmRq.jpg');
     height: 0;
     overflow: hidden;
     position: absolute;
