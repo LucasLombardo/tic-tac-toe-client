@@ -23,7 +23,7 @@ const updateCell = (target, currTurn) => {
 }
 
 const invalidCell = () => {
-    $(`#game-message`).text(`Sorry, that cell is invalid`)
+    $(`#game-message`).text(shuffleArr(messages.invalidMove)[0])
 }
 
 const displayWinner = winner => {
