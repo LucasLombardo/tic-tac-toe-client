@@ -127,9 +127,9 @@ const chooseCell = function (cells, gamepiece, difficulty) {
     // Based on difficulty, select % of the time to do correct move. Use random
     // number from 1 to 100 to set a boolean to true if rule should be ignored.
     // Array order [ easy, med, hard ], selected via index by difficulty param.
-    const checkToBlockWin = [ 60, 90, 97, ][ difficulty ] > rand1to100()
-    const checkToFork = [ 60, 80, 97, ][ difficulty ] > rand1to100()
-    const checkToBlockFork = [ 30, 80, 90, ][ difficulty ] > rand1to100()
+    const checkToBlockWin = [ 40, 80, 92, ][ difficulty ] > rand1to100()
+    const checkToFork = [ 30, 70, 92, ][ difficulty ] > rand1to100()
+    const checkToBlockFork = [ 20, 70, 85, ][ difficulty ] > rand1to100()
 
     console.log(`checkToBlockWin = ${checkToBlockFork} checkToFork = ${checkToFork} checkToBlockFork = ${checkToBlockFork}`)
     console.log(`============`)
