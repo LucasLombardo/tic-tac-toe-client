@@ -1,3 +1,5 @@
+// TODO: needs tree shaking, not all messages are used in app
+// attributes of messages object should be in format of array with at least one value
 const messages = {
     // Auth Related
     signInSuccess: [

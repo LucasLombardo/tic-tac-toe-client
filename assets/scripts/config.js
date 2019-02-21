@@ -1,19 +1,20 @@
 'use strict'
 
-// APP Settings
+// App Settings
 
+// TODO: pull more settings into this file
 const appSettings = {
-    aiDelay: 700, // time for ai to take turn in ms
-
+    aiDelay: 1800, // time for ai to take turn in ms
 }
 
-// API Base URLS
+// API Settings
 let apiUrl
 const apiUrls = {
     production: `https://tic-tac-toe-wdi-production.herokuapp.com/`,
     development: `https://tic-tac-toe-wdi.herokuapp.com/`,
 }
 
+// check if environment is local or deployed
 if (window.location.hostname === `localhost`) {
     apiUrl = apiUrls.development
 } else {

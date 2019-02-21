@@ -5,13 +5,20 @@ const gameEvents = require(`./game/events`)
 const store = require(`./store`)
 
 $(() => {
+    // display html once loaded to avoid FOUC
     $(`html`).removeClass(`unloaded`)
+    // run initialization functions
     authEvents.onLoad()
-    $(`.nm-logo`).on(`click`, () => { console.log(store) })
+    $(`.sidenav`).sidenav() // material.css init
+
+    // add auth event handlers
     $(`#sign-up-form`).on(`submit`, authEvents.onSignUp)
     $(`#sign-in-form`).on(`submit`, authEvents.onSignIn)
     $(`#change-password-form`).on(`submit`, authEvents.onChangePassword)
     $(`#sign-out-form`).on(`submit`, authEvents.onSignOut)
+    $(`#sign-out-link`).on(`click`, authEvents.onSignOut)
+
+    // add click handlers to gameboard markers
     $(`.gameboard--marker`).on(`click`, function (e) {
         // only trigger click on gameboard marker, ignore descendents
         if (e.target !== this) return
@@ -19,18 +26,43 @@ $(() => {
     })
     $(`#reset`).on(`click`, gameEvents.onReset)
 
-    $(`.sidenav`).sidenav()
+    // AI SETTINGS LOGIC
 
-    // ai toggle
+    // add click listener for ai toggle
     $(`#play-vs-ai`).on(`click`, () => {
+        // toggle ai in store
         store.settings.isVsAi = !store.settings.isVsAi
-        // manually set checkbox to current value
+        // manually set checkbox to current value (boolean)
         $(`#ai-checkbox`).prop(`checked`, store.settings.isVsAi)
         // reset gameboard
         gameEvents.onReset()
         // return false to avoid jQuery running this twice per click
         return false
     })
+
+    // handle ai difficulty switches
+    $(`#difficulty-0`).on(`click`, () => {
+        store.settings.difficulty = 0
+        $(`input[name='difficulty-group']`).attr(`checked`, false)
+        $(`#difficulty-0-radio`).attr(`checked`, `checked`)
+        return false
+    })
+
+    $(`#difficulty-1`).on(`click`, () => {
+        store.settings.difficulty = 1
+        $(`input[name='difficulty-group']`).attr(`checked`, false)
+        $(`#difficulty-1-radio`).attr(`checked`, `checked`)
+        return false
+    })
+
+    $(`#difficulty-2`).on(`click`, () => {
+        store.settings.difficulty = 2
+        $(`input[name='difficulty-group']`).attr(`checked`, false)
+        $(`#difficulty-2-radio`).attr(`checked`, `checked`)
+        return false
+    })
+
+    // PAGE ROUTING LOGIC
 
     // hide pages
     $(`#auth-page`).hide()
@@ -79,30 +111,5 @@ $(() => {
         $(`#history-page`).fadeOut(`fast`, () => {
             $(`#game-page`).fadeIn(`slow`)
         })
-    })
-
-    // sign out button on nav
-    $(`#sign-out-link`).on(`click`, authEvents.onSignOut)
-
-    // handle ai difficulty switches
-    $(`#difficulty-0`).on(`click`, () => {
-        store.settings.difficulty = 0
-        $(`input[name='difficulty-group']`).attr(`checked`, false)
-        $(`#difficulty-0-radio`).attr(`checked`, `checked`)
-        return false
-    })
-
-    $(`#difficulty-1`).on(`click`, () => {
-        store.settings.difficulty = 1
-        $(`input[name='difficulty-group']`).attr(`checked`, false)
-        $(`#difficulty-1-radio`).attr(`checked`, `checked`)
-        return false
-    })
-
-    $(`#difficulty-2`).on(`click`, () => {
-        store.settings.difficulty = 2
-        $(`input[name='difficulty-group']`).attr(`checked`, false)
-        $(`#difficulty-2-radio`).attr(`checked`, `checked`)
-        return false
     })
 })
