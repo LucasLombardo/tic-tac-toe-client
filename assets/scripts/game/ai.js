@@ -68,8 +68,10 @@ const isForkable = function (cells, gamepiece) {
     for (let i = 0; i < 9; i++) {
         // loop through cells, checking if placing gamepiece there creates a fork
         const test = new Gameboard(gamepiece, [ ...cells, ])
-        test.selectCell(i)
-        if (isForked(test.cells, gamepiece)) return i
+        if (test.selectCell(i)) {
+            // if cell is selectable and it causes a fork, return cell
+            if (isForked(test.cells, gamepiece)) return i
+        }
     }
     return undefined
 }
