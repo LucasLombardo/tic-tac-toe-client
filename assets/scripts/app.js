@@ -45,6 +45,8 @@ $(() => {
         store.settings.difficulty = 0
         $(`input[name='difficulty-group']`).attr(`checked`, false)
         $(`#difficulty-0-radio`).attr(`checked`, `checked`)
+        // reset gameboard
+        gameEvents.onReset()
         return false
     })
 
@@ -52,6 +54,8 @@ $(() => {
         store.settings.difficulty = 1
         $(`input[name='difficulty-group']`).attr(`checked`, false)
         $(`#difficulty-1-radio`).attr(`checked`, `checked`)
+        // reset gameboard
+        gameEvents.onReset()
         return false
     })
 
@@ -59,6 +63,8 @@ $(() => {
         store.settings.difficulty = 2
         $(`input[name='difficulty-group']`).attr(`checked`, false)
         $(`#difficulty-2-radio`).attr(`checked`, `checked`)
+        // reset gameboard
+        gameEvents.onReset()
         return false
     })
 

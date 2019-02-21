@@ -46,3 +46,11 @@ nav {
 .nm-user-image-bg {
   background-color: $black;
 }
+
+.nm-reset-warning {
+  color: $gray;
+  font-size: .8em;
+  font-style: italic;
+  line-height: 1.5em;
+  padding: 1em 2em;
+}
