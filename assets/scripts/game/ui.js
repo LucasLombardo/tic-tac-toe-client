@@ -29,7 +29,7 @@ const invalidCell = () => {
 const displayWinner = winner => {
     if (winner.length === 1) {
         if (store.settings.isVsAi) {
-            const msg = winner === `o` ? shuffleArr(messages.broWins) : shuffleArr(messages.userWins)
+            const msg = winner === `o` ? shuffleArr(messages.broWins)[0] : shuffleArr(messages.userWins)[0]
             $(`#game-message`).text(msg)
         } else {
             $(`#game-message`).text(`Winner is ${winner.toUpperCase()}. Reset board to play again!`)
@@ -42,7 +42,7 @@ const displayWinner = winner => {
 const updateTurn = (turn, won = false) => {
     if (!won) {
         if (store.settings.isVsAi) {
-            const msg = turn === `o` ? shuffleArr(messages.brosTurn) : shuffleArr(messages.usersTurn)
+            const msg = turn === `o` ? shuffleArr(messages.brosTurn)[0] : shuffleArr(messages.usersTurn)[0]
             $(`#player-turn-message`).text(msg)
         } else {
             $(`#player-turn-message`).text(`${turn.toUpperCase()}'s turn.`)
