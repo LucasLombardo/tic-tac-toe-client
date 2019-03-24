@@ -51,11 +51,16 @@ const messages = {
     ],
     usersTurn: [
         `You're up, chief. Make it count.`,
+        `You're up, chief. Make it count.`,
         `Your turn nerd.`,
         `Will you make a move already, I don't have all day.`,
         `Take your turn, bro.`,
         `We're all waiting for you to take your turn...`,
         `Your turn`,
+        `Your turn`,
+        `Your turn`,
+        `You're up, bud.`,
+        `You're up, bud.`,
         `You're up, bud.`,
     ],
     oWins: [
@@ -72,7 +77,7 @@ const messages = {
         `Tie game. How boring...`,
     ],
     broWins: [
-        `Hah. I won, get wrecked loser.`,
+        `Hah. I won. get wrecked loser.`,
         `Hell yeah in your face. I won.`,
         `Did you really think you stood a chance against me? I won.`,
         `The champion reigns supreme. I won.`,
